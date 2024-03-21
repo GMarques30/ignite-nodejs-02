@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "node16",
+    "module": "commonjs",
     "lib": ["ES2023"],
     "declaration": true,
     "removeComments": true,

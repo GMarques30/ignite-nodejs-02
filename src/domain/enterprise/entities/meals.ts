@@ -26,34 +26,30 @@ export class Meals extends Entity<MealsProps> {
   }
 
   get name() {
-    return this.name
+    return this.props.name
   }
 
   set name(name: string) {
-    this.name = name
+    this.props.name = name
   }
 
   get description() {
-    return this.description
+    return this.props.description
   }
 
   set description(description: string) {
-    this.description = description
+    this.props.description = description
   }
 
   get isInTheDiet() {
-    return this.isInTheDiet
-  }
-
-  private set isInTheDiet(value: boolean) {
-    this.isInTheDiet = value
+    return this.props.isInTheDiet
   }
 
   changeIsInTheDiet() {
-    this.isInTheDiet = !this.isInTheDiet
+    this.props.isInTheDiet = !this.isInTheDiet
   }
 
   get createdAt() {
-    return this.createdAt
+    return this.props.createdAt
   }
 }

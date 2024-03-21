@@ -22,18 +22,18 @@ export class User extends Entity<UserProps> {
   }
 
   get name() {
-    return this.name
+    return this.props.name
   }
 
   get email() {
-    return this.email
+    return this.props.email
   }
 
   get password() {
-    return this.password
+    return this.props.password
   }
 
   get createdAt() {
-    return this.createdAt
+    return this.props.createdAt
   }
 }

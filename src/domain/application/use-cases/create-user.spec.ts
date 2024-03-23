@@ -1,6 +1,6 @@
-import { InMemoryUserRepository } from '../../../../test/repositories/in-memory-user-repository'
+import { FakeHasher } from 'src/test/hasher/fake-hasher'
 import { CreateUserUseCase } from './create-user'
-import { FakeHasher } from '../../../../test/hasher/fake-hasher'
+import { InMemoryUserRepository } from 'src/test/repositories/in-memory-user-repository'
 
 describe('Create Student Use Case', () => {
   let inMemoryUserRepository: InMemoryUserRepository
@@ -40,6 +40,10 @@ describe('Create Student Use Case', () => {
     const hashedPassword = await fakeHasher.hash('123456')
 
     expect(result.isRight()).toBe(true)
-    expect(inMemoryUserRepository.items[0].password).toEqual(hashedPassword)
+    expect(inMemoryUserRepository.items[0]).toEqual(
+      expect.objectContaining({
+        password: hashedPassword
+      })
+    )
   })
 })

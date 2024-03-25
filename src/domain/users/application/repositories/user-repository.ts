@@ -1,4 +1,4 @@
-import { User } from 'src/domain/enterprise/entities/user'
+import { User } from '../../enterprise/entities/user'
 
 export interface UserRepository {
   create(user: User): Promise<void>

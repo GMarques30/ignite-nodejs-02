@@ -1,5 +1,5 @@
-import { HashGenerator } from 'src/domain/application/users/hasher/hash-generator'
 import { hash } from 'bcryptjs'
+import { HashGenerator } from 'src/domain/users/application/hasher/hash-generator'
 
 export class BCrypt implements HashGenerator {
   private HASH_SALT_LENGTH = 8

@@ -1,16 +1,16 @@
-import { FakeHasher } from 'src/test/hasher/fake-hasher'
+import { FakeHasher } from 'test/hasher/fake-hasher'
+import { InMemoryUserRepository } from 'test/repositories/in-memory-user-repository'
 import { CreateUserUseCase } from './create-user'
-import { InMemoryUserRepository } from 'src/test/repositories/in-memory-user-repository'
 
 describe('Create Student Use Case', () => {
   let inMemoryUserRepository: InMemoryUserRepository
-  let fakeHasher: FakeHasher
+  let fakeHashGenerator: FakeHasher
   let sut: CreateUserUseCase
 
   beforeEach(() => {
     inMemoryUserRepository = new InMemoryUserRepository()
-    fakeHasher = new FakeHasher()
-    sut = new CreateUserUseCase(inMemoryUserRepository, fakeHasher)
+    fakeHashGenerator = new FakeHasher()
+    sut = new CreateUserUseCase(inMemoryUserRepository, fakeHashGenerator)
   })
 
   it('should be able create a new user', async () => {
@@ -37,7 +37,7 @@ describe('Create Student Use Case', () => {
       password: '123456'
     })
 
-    const hashedPassword = await fakeHasher.hash('123456')
+    const hashedPassword = await fakeHashGenerator.hash('123456')
 
     expect(result.isRight()).toBe(true)
     expect(inMemoryUserRepository.items[0]).toEqual(

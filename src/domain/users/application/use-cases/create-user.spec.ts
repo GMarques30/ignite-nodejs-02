@@ -2,7 +2,7 @@ import { FakeHasher } from 'test/hasher/fake-hasher'
 import { InMemoryUserRepository } from 'test/repositories/in-memory-user-repository'
 import { CreateUserUseCase } from './create-user'
 
-describe('Create Student Use Case', () => {
+describe('Create User Use Case', () => {
   let inMemoryUserRepository: InMemoryUserRepository
   let fakeHashGenerator: FakeHasher
   let sut: CreateUserUseCase

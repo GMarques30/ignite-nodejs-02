@@ -7,6 +7,7 @@ export interface MealProps {
   description: string
   isInTheDiet: boolean
   createdAt: Date
+  userId: UniqueEntityID
 }
 
 export class Meal extends Entity<MealProps> {
@@ -47,5 +48,9 @@ export class Meal extends Entity<MealProps> {
 
   get createdAt() {
     return this.props.createdAt
+  }
+
+  get userId() {
+    return this.props.userId
   }
 }

@@ -2,27 +2,23 @@ import { Entity } from 'src/core/entities/entity'
 import { UniqueEntityID } from 'src/core/entities/unique-entity-id'
 import { Optional } from 'src/core/types/optional'
 
-export interface MealsProps {
+export interface MealProps {
   name: string
   description: string
   isInTheDiet: boolean
   createdAt: Date
 }
 
-export class Meals extends Entity<MealsProps> {
-  static create(
-    props: Optional<MealsProps, 'createdAt' | 'isInTheDiet'>,
-    id?: UniqueEntityID
-  ) {
-    const meals = new Meals(
+export class Meal extends Entity<MealProps> {
+  static create(props: Optional<MealProps, 'createdAt'>, id?: UniqueEntityID) {
+    const meal = new Meal(
       {
-        createdAt: props.createdAt ?? new Date(),
-        isInTheDiet: true,
-        ...props
+        ...props,
+        createdAt: props.createdAt ?? new Date()
       },
       id
     )
-    return meals
+    return meal
   }
 
   get name() {

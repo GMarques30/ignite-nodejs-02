@@ -42,12 +42,16 @@ export class Meal extends Entity<MealProps> {
     return this.props.isInTheDiet
   }
 
-  changeIsInTheDiet() {
-    this.props.isInTheDiet = !this.isInTheDiet
+  set isInTheDiet(isInTheDiet: boolean) {
+    this.props.isInTheDiet = isInTheDiet
   }
 
   get createdAt() {
     return this.props.createdAt
+  }
+
+  set createdAt(cretedAt: Date) {
+    this.props.createdAt = this.createdAt
   }
 
   get userId() {

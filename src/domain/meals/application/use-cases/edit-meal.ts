@@ -3,7 +3,6 @@ import { MealRepository } from '../repositories/meal-repository'
 import { NotFoundError } from './errors/not-found-error'
 import { Meal } from '../../enterprise/entities/meal'
 import { UnauthorizedError } from './errors/unauthorized-error'
-import { UserRepository } from 'src/domain/users/application/repositories/user-repository'
 import { RequiredFieldsError } from 'src/core/errors/errors/required-fields-error'
 
 interface EditMealInput {
@@ -23,10 +22,7 @@ type EditMealOutput = Either<
 >
 
 export class EditMealUseCase {
-  constructor(
-    private readonly mealRepository: MealRepository,
-    private readonly userRepository: UserRepository
-  ) {}
+  constructor(private readonly mealRepository: MealRepository) {}
 
   async execute({
     mealId,
@@ -43,10 +39,6 @@ export class EditMealUseCase {
     const meal = await this.mealRepository.findById(mealId)
 
     if (!meal) return left(new NotFoundError('Meal'))
-
-    const user = await this.userRepository.findById(userId)
-
-    if (!user) return left(new NotFoundError('User'))
 
     const wasTheUserWhoCreatedThisMeal =
       meal.userId.toString() === userId ? true : false

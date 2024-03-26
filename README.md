@@ -4,20 +4,20 @@ API para controle de dieta diária
 
 ## Requisitos funcionais
 
-[] Deve ser possível criar um usuário
+[x] Deve ser possível criar um usuário
 
-[] Deve ser possível identificar o usuário entre as requisições
+[x] Deve ser possível identificar o usuário entre as requisições
 
-[] Deve ser possível registrar uma refeição feita, com as seguintes informações:
+[x] Deve ser possível registrar uma refeição feita, com as seguintes informações:
 
 - Nome
 - Descrição
 - Data e Hora
 - Está dentro ou não da dieta
 
-[] Deve ser possível editar uma refeição de um usuário, podendo alterar todos os dados acima
+[x] Deve ser possível editar uma refeição de um usuário, podendo alterar todos os dados acima
 
-[] Deve ser possível apagar uma refeição de um usuário
+[x] Deve ser possível apagar uma refeição de um usuário
 
 [] Deve ser possível listar todas as refeições de um usuário
 
@@ -38,6 +38,6 @@ API para controle de dieta diária
 
 ## Regras de negócio
 
-[] Não pode haver dois usuários registrados com o mesmo email
+[x] Não pode haver dois usuários registrados com o mesmo email
 
 [] Todas as senhas devem ser criptografadas antes de serem persistidas no banco de dados

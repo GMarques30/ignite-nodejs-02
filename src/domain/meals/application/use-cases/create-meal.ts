@@ -1,8 +1,6 @@
 import { MealRepository } from './../repositories/meal-repository'
 import { Meal } from '../../enterprise/entities/meal'
-import { Either, left, right } from 'src/core/either'
-import { UserRepository } from 'src/domain/users/application/repositories/user-repository'
-import { NotFoundError } from './errors/not-found-error'
+import { Either, right } from 'src/core/either'
 import { UniqueEntityID } from 'src/core/entities/unique-entity-id'
 
 interface CreateMealInput {
@@ -14,17 +12,14 @@ interface CreateMealInput {
 }
 
 type CreateMealOutput = Either<
-  NotFoundError,
+  null,
   {
     meal: Meal
   }
 >
 
 export class CreateMealUseCase {
-  constructor(
-    private readonly userRepository: UserRepository,
-    private readonly mealRepository: MealRepository
-  ) {}
+  constructor(private readonly mealRepository: MealRepository) {}
 
   async execute({
     name,
@@ -33,10 +28,6 @@ export class CreateMealUseCase {
     createdAt,
     userId
   }: CreateMealInput): Promise<CreateMealOutput> {
-    const user = await this.userRepository.findById(userId)
-
-    if (!user) return left(new NotFoundError('User'))
-
     const meal = Meal.create({
       name,
       description,

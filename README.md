@@ -15,13 +15,13 @@ API para controle de dieta diária
 - Data e Hora
 - Está dentro ou não da dieta
 
-[] Deve ser possível editar uma refeição, podendo alterar todos os dados acima
+[] Deve ser possível editar uma refeição de um usuário, podendo alterar todos os dados acima
 
-[] Deve ser possível apagar uma refeição
+[] Deve ser possível apagar uma refeição de um usuário
 
 [] Deve ser possível listar todas as refeições de um usuário
 
-[] Deve ser possível visualizar uma única refeição
+[] Deve ser possível visualizar uma única refeição de um usuário
 
 [] Deve ser possível recuperar as métricas de um usuário
 
@@ -30,8 +30,14 @@ API para controle de dieta diária
 - Quantidade total de refeições fora da dieta
 - Melhor sequência de refeições dentro da dieta
 
-## Regras de negócio
+## Requisitos não funcionais
 
-[] Validar as propriedades presentes no `body` da requisição.
+[] O usuário só pode visualizar, editar, apagar e registrar uma refeição caso ele esteja autenticado
 
 [] O usuário só pode visualizar, editar e apagar as refeições o qual ele criou
+
+## Regras de negócio
+
+[] Não pode haver dois usuários registrados com o mesmo email
+
+[] Todas as senhas devem ser criptografadas antes de serem persistidas no banco de dados

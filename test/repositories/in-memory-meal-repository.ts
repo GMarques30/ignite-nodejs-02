@@ -8,6 +8,14 @@ export class InMemoryMealRepository implements MealRepository {
     this.items.push(meal)
   }
 
+  async findMany(id: string): Promise<Meal[] | null> {
+    const meals = this.items.filter((meal) => meal.userId.toString() === id)
+
+    if (meals.length === 0) return null
+
+    return meals
+  }
+
   async findById(id: string): Promise<Meal | null> {
     const meal = this.items.find((meal) => meal.id.toString() === id)
 

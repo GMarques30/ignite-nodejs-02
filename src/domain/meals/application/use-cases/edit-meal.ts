@@ -40,8 +40,7 @@ export class EditMealUseCase {
 
     if (!meal) return left(new NotFoundError('Meal'))
 
-    const wasTheUserWhoCreatedThisMeal =
-      meal.userId.toString() === userId ? true : false
+    const wasTheUserWhoCreatedThisMeal = meal.userId.toString() === userId
 
     if (!wasTheUserWhoCreatedThisMeal) return left(new UnauthorizedError())
 

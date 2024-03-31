@@ -31,7 +31,7 @@ describe('Edit Meal Use Case', () => {
       userId: user.id.toString()
     })
 
-    expect(result.isRight()).toBe(true)
+    expect(result.isRight()).toBeTruthy()
     expect(result.value).toEqual({
       meal: expect.objectContaining({
         name: 'Edit name',

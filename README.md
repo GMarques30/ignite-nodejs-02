@@ -19,9 +19,9 @@ API para controle de dieta diária
 
 [x] Deve ser possível apagar uma refeição de um usuário
 
-[] Deve ser possível listar todas as refeições de um usuário
+[x] Deve ser possível listar todas as refeições de um usuário
 
-[] Deve ser possível visualizar uma única refeição de um usuário
+[x] Deve ser possível visualizar uma única refeição de um usuário
 
 [] Deve ser possível recuperar as métricas de um usuário
 
